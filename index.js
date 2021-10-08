@@ -15,23 +15,6 @@ app.use(express.static(__dirname + '/public'));
 
 app.use('/dishes', dishRouter);
 
-app.get('/dishes/:dishId', (req, res, next) => {
-    res.end('Will send the details of dish ' + req.params.dishId + ' to you!');
-})
-
-app.put('/dishes/:dishId', (req, res, next) => {
-    res.end('will update the dish: ' + req.body.name + ' with details ' + req.body.description);
-})
-
-app.post('/dishes/:dishId', (req, res, next) => {
-    res.statusCode = 403;
-    res.end('not support add single dishe!');
-})
-
-app.delete('/dishes/:dishId', (req, res, next) => {
-    res.end('Deleting dish: ' + req.params.dishId);
-})
-
 app.use((req, res, next) => {
     console.log("Request for " + req.url + " by method " + req.method);
 
